@@ -1,15 +1,15 @@
-IDIR =./include
-CC=gcc
+IDIR=.
+CC=g++
 CFLAGS=-I$(IDIR)
 
 ODIR=obj
 
-LIBS=
+LIBS=-lpthread
 
-_OBJ = main.o 
+_OBJ = main.o ya_getopt.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
-$(ODIR)/%.o: %.c
+$(ODIR)/%.o: %.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 main: $(OBJ)
