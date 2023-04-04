@@ -6,13 +6,13 @@ ODIR=obj
 
 LIBS=-lpthread
 
-_OBJ = main.o ya_getopt.o
+_OBJ = fsm_table_access.o ya_getopt.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 $(ODIR)/%.o: %.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-main: $(OBJ)
+fsm_table_access: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 .PHONY: clean
